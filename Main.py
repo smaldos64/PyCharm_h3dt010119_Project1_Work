@@ -19,11 +19,12 @@ if __name__ == '__main__':
     while True:
         print("Indtast Programvalg")
         print("0 : Stop program")
-        print("1 : Beregn areal af firkant")
-        print("2 : Beregn areal af cirkel")
+        print("1 : Beregn areal af Firkant")
+        print("2 : Beregn areal af Cirkel")
+        print("3 : Beregn areal af Trapez")
 
         #runAgain = int(input("Indtast Programvalg : "))
-        runAgain = MyInput.MyInput_Class.InputInt("Indtast Programvalg (0 - 2) : ")
+        runAgain = MyInput.MyInput_Class.InputInt("Indtast Programvalg (0 - 3) : ")
 
         if 0 == runAgain:
             break
