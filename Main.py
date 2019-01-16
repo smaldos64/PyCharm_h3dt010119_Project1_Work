@@ -8,7 +8,8 @@ class MathOperation(Enum):
     AREA_SQUARE = 1,
     AREA_TRIANGLE = 2,
     AREA_TRAPEZ = 3,
-    AREA_CIRCLE = 4
+    AREA_CIRCLE = 4,
+    AREA_UNUSED = 100
 
     def __int__(self):
         return self.value
@@ -35,11 +36,10 @@ def arealTrekant(baselineFunc, heightFunc):
 def GetStringList():
     stringList = []
     stringList.append("0 : Stop program")
-    stringList.append("1 : Beregn areal af Firkant")
-    stringList.append("2 : Beregn areal af Cirkel")
-    stringList.append("3 : Beregn areal af Trapez")
-    stringList.append("4 : Beregn areal af Trekant")
-
+    stringList.append(str(MathOperation.AREA_SQUARE.value[0]) + " : Beregn areal af Firkant")
+    stringList.append(str(MathOperation.AREA_TRAPEZ.value[0]) + " : Beregn areal af Trapez")
+    stringList.append(str(MathOperation.AREA_TRIANGLE.value[0]) + " : Beregn areal af Trekant")
+    stringList.append(str(MathOperation.AREA_CIRCLE.value[0]) + " : Beregn areal af Cirkel")
     return (stringList)
 
 def PrintStringsInList(currentList):
@@ -64,14 +64,14 @@ def PerformMathOperation(thisMathOperation):
 
         print("Arealet af firkanten med længde %sm og bredde %sm er : %sm2" % (laengde, bredde, arealPaaFirkant))
 
-    elif MathOperation.AREA_CIRCLE[0] == thisMathOperation:
+    elif MathOperation.AREA_CIRCLE.value[0] == thisMathOperation:
         radius = MyInput.MyInput_Class.InputFloat("Indtast cirklens radius (m) : ")
 
         arealPaaCirkel = arealCirkel(radius)
 
         print("Arealet af cirklen med radius %sm er : %sm2" % (radius, arealPaaCirkel))
 
-    elif MathOperation.AREA_TRAPEZ[0] == thisMathOperation:
+    elif MathOperation.AREA_TRAPEZ.value[0] == thisMathOperation:
         side_a = MyInput.MyInput_Class.InputFloat("Indtast trapez sidelængde a (m) : ")
         side_b = MyInput.MyInput_Class.InputFloat("Indtast trapez sidelængde b (m) : ")
         height = MyInput.MyInput_Class.InputFloat("Indtast trapez højde (m) : ")
@@ -80,7 +80,7 @@ def PerformMathOperation(thisMathOperation):
 
         print("Arealet af trapez med side a %sm og side b %sm og højde %sm er : %sm2" % (side_a, side_b, height, arealPaaTrapez))
 
-    elif MathOperation.AREA_TRIANGLE[0] == thisMathOperation:
+    elif MathOperation.AREA_TRIANGLE.value[0] == thisMathOperation:
         baseline = MyInput.MyInput_Class.InputFloat("Indtast trekant grundlinjelængde(m) : ")
         height = MyInput.MyInput_Class.InputFloat("Indtast trekant højde (m) : ")
 
