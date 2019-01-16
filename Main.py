@@ -1,6 +1,7 @@
 import math
 import MyInput
 import os
+import sys
 from enum import Enum
 
 class MathOperation(Enum):
@@ -101,7 +102,7 @@ if __name__ == '__main__':
         runAgain = MyInput.MyInput_Class.InputIntUpperAndLowerLimit(informationString, 0, len(printout_List) - 1)
 
         if 0 == runAgain:
-            break
+            sys.exit(0)
         else:
             PerformMathOperation(runAgain)
 
